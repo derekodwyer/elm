@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_order_inherit" model="ir.ui.view">
+        <field name="name">view_sale_order_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='customer_signature']" position="after">
+                <page string="Worktops" name="worktops">
+                    <group>
+                        <group>
+                            <field name="type_of_material"/>
+                            <field name="position_of_flutes"/>
+                            <field name="type_of_finish"/>
+                            <field name="type_of_sink"/>
+                            <field name="tap_hole_size"/>
+                            <field name="hob_cut_size"/>
+                            <field name="notes"/>
+                        </group>
+                        <group>
+                            <field name="kitchen_makers"/>
+                            <field name="height_and_thickness"/>
+                            <field name="is_there_hob"/>
+                            <field name="window_board_size"/>
+                            <field name="ramped_drainer"/>
+                            <field name="approx_template_date"/>
+                            <field name="additional_info"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+           
+        </field>
+    </record>
+         
+</odoo>

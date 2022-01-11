@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_sale_worktop" model="report.paperformat">
+            <field name="name">European A4 Sale Worktop</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="action_report_sale_worktop" model="ir.actions.report">
+            <field name="name">Sale Worktops</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">sale_extend.sale_worktops_temp_id</field>
+            <field name="report_file">sale_extend.sale_worktops_temp_id</field>
+            <field name="print_report_name">'Sale Worktops - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="sale_extend.paperformat_sale_worktop"/>
+        </record>
+
+
+    </data>
+</odoo>

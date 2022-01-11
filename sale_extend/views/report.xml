@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+         <template id="internal_layout_sale_worktop">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <t t-if="not company">
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+
+            <div class="header">
+
+            </div>
+
+            <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+              <t t-raw="0"/>
+            </div>
+
+            <div class="footer o_standard_footer">
+
+            </div>
+
+        </template>    
+
+        <template id="sale_worktops_temp_id">
+
+            <t t-call="web.html_container">
+
+                <t t-foreach="docs" t-as="o">
+
+                    <t t-call="sale_extend.internal_layout_sale_worktop">
+
+                    
+                        <div class="page">
+
+                            <style type="text/css">
+
+                                @media (min-width: 1200px) {
+                                    .report-wrapper {
+                                       width: 100%;
+                                    }
+                                }
+                                @media (min-width: 992px) {
+                                    .report-wrapper {
+                                       width: 100%;
+                                    }
+                                }
+                                @media (min-width: 768px) {
+                                    .report-wrapper {
+                                       width: 100%;
+                                    }
+                                }
+
+                                .clearfloat {
+                                    clear: both;
+                                    float: none;
+                                    width: 100%;
+                                    height: 1px;
+                                    display: block;
+                                }
+                                .report-wrapper {
+                                    width: 100%;
+                                    font-size: 16px;
+                                }
+                                table {
+                                    width: 100%;
+                                    border-spacing: 0px;
+                                    border: 2px solid #CCC;
+                                    vertical-align: middle;
+                                }
+                                table tr td, table tr th {
+                                    text-align: center;
+                                    padding: 3px 0px 0px 3px;
+                                    border-right: 2px solid #CCC;
+                                    border-bottom: 2px solid #CCC;
+                                    vertical-align: middle;
+                                }
+                                table tr td:last-child, 
+                                table tr th:last-child {
+                                    border-right: none
+                                }
+                                table tr:last-child td {
+                                    border-bottom: none
+                                }
+                                table tr th {
+                                    text-align: center;
+                                }
+                                
+                                .report-header {
+                                    width: 100%;
+                                    margin: 0px auto;
+                                    text-align: center;
+                                }
+
+                                .report-header p {
+                                    width: 50%;
+                                    float: left;
+                                    margin: 0px 0px 20px;
+                                }
+                                .report-header p .solid {
+                                    font-weight: bold;
+                                }
+                                h2 {
+                                    text-align: center;
+                                    font-size: 35px;
+                                    text-decoration: underline; 
+                                }
+                                .tile {
+                                    display: inline-block;
+                                    width: 100px;
+                                    text-align: center;
+                                    background: #a64f8e;
+                                    color: #fff;
+                                    padding: 2px 5px;
+                                }
+
+                                .header {
+                                    display : none !importnat;
+                                }
+                                .footer {
+                                    display : none !importnat;
+                                }
+
+                                .header{display:none;}
+                                .footer{display:none;}
+
+                                .space {
+                                    min-width: 100px;
+                                    max-width: 100px;
+                                    width: 100px;
+                                }
+
+                                .solid {
+                                    font-weight:bold;
+                                }
+
+                            </style>
+
+
+                            <div class="report-wrapper">
+
+                                <div style="width:100%;margin-bottom:20px;margin-top:10px">
+
+
+                                    <div style="width:100%;float:left;text-align:left">
+                                        <div style="width:50%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:26px;margin-left:15px">
+                                                Quotation for Worktops
+                                            </span>
+                                        </div>
+                                        <div style="width:50%;float:left;text-align:right">
+                                            <img  t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width:400px;margin-right:15px"/>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:50%;float:left">
+                                            <div style="width:15%;float:left">
+                                                <span style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                    Date:
+                                                </span>
+                                            </div>
+                                            <div style="width:85%;float:left;border-bottom:1px solid;display:inline-block">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.date_order">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="width:50%;float:left;text-align:center">
+                                            <div style="width:30%;border:1px solid;text-align:center;margin:0px auto">
+                                                <span class="solid" style="font-size:16px">no:</span>
+                                                <span class="solid" style="font-size:16px;margin-left:35px" t-esc="o.name"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Customer Name :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.partner_id.display_name">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:35%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Kitchen Makers name and contact number :
+                                            </span>
+                                        </div>
+                                        <div style="width:57%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.kitchen_makers">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:20%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Address and Ericode :
+                                            </span>
+                                        </div>
+                                        <div style="width:72%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="partner_address">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Contact Number :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.partner_id.phone">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:30%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Type Of Material and Thickness :
+                                            </span>
+                                        </div>
+                                        <div style="width:62%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.type_of_material">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Type Of Finish :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.type_of_finish">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Type Of Sink :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.type_of_sink">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:27%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Position Of flutes if Required :
+                                            </span>
+                                        </div>
+                                        <div style="width:65%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.position_of_flutes">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Tap Hole Size :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.tap_hole_size">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Hob Cut Size :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.hob_cut_size">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:30%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Height And Thickness of Upstands :
+                                            </span>
+                                        </div>
+                                        <div style="width:62%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.height_and_thickness">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:22%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Is there hob splashback :
+                                            </span>
+                                        </div>
+                                        <div style="width:70%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.is_there_hob">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                     <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:25%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Window board approx size :
+                                            </span>
+                                        </div>
+                                        <div style="width:67%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.window_board_size">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Ramped Drainer :
+                                            </span>
+                                        </div>
+                                        <div style="width:75%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.ramped_drainer">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:22%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Approx Template Date :
+                                            </span>
+                                        </div>
+                                        <div style="width:70%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.approx_template_date">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:22%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Additional Information :
+                                            </span>
+                                        </div>
+                                        <div style="width:70%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block" t-esc="o.additional_info">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                       
+                                        <div style="width:90%;float:left;border-bottom:1px solid;display:inline-block;margin-left:25px">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block;margin-left:15px">
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:35px">
+                                        <div style="width:17%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
+                                                Signed By :
+                                            </span>
+                                        </div>
+                                        <div style="width:50%;float:left;border-bottom:1px solid;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:15px;display:inline-block">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                        <div style="width:13%;float:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:13px;margin-left:15px">
+                                                Please Note :
+                                            </span>
+                                        </div>
+                                        <div style="width:50%;float:left;display:inline-block">
+                                            <span style="text-align:left;font-size:15px;margin-left:13px" t-esc="o.notes">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                        <div style="width:20%;float:right;display:inline-block;border-bottom:1px solid">
+                                            <span style="text-align:center;font-size:15px;display:inline-block" t-esc="'{:0,.2f}'.format(float(o.amount_total))">
+                                            </span>
+                                        </div>
+                                        <div style="width:13%;float:right">
+                                            <span class="solid" style="text-align:center;padding:8px;font-size:15px;margin-left:13px">
+                                                Total :
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                        <div style="width:50%;float:left;text-align:left">
+                                            <span class="solid" style="text-align:left;padding:8px;font-size:13px;margin-left:15px">
+                                                Term and conditions are outlined on the back of this sheet
+                                            </span>
+                                            
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:center">
+                                            <div style="width:40%;float:right;display:inline-block;border-bottom:1px solid">
+                                                <span style="text-align:center;font-size:15px;display:inline-block">
+                                                </span>
+                                            </div>
+                                            <div style="width:26%;float:right">
+                                                <span class="solid" style="text-align:center;padding:8px;font-size:15px;margin-left:13px">
+                                                    Deposit :
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                        <div style="width:20%;float:right;display:inline-block;border-bottom:1px solid">
+                                            <span style="text-align:center;font-size:15px;display:inline-block">
+                                            </span>
+                                        </div>
+                                        <div style="width:13%;float:right">
+                                            <span class="solid" style="text-align:center;padding:8px;font-size:15px;margin-left:13px">
+                                                Balance :
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div style="width:100%;float:left;text-align:left;background:black;margin-top:20px">
+
+                                        <div style="width:100%;float:left;text-align:left;">
+                                            <div style="width:40%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Tel :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.phone">
+                                                </span>
+                                            </div>
+                                            <div style="width:60%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    V.A.T NO :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.vat">
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                            <div style="width:40%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Tel :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.mobile">
+                                                </span>
+                                            </div>
+                                            <div style="width:60%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Directors D O'Connor,M O'Connor
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                            <div style="width:40%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Email : 
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.email">
+                                                </span>
+                                            </div>
+                                            <div style="width:60%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Register Office :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="company_address">
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                            <div style="width:40%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Web :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.website">
+                                                </span>
+                                            </div>
+                                            <div style="width:60%;float:left">
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
+                                                    Company NO :
+                                                </span>
+                                                <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white" t-esc="o.company_id.company_registry">
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                    
+                                </div>
+
+                            </div><!--end of report wrapper-->
+
+
+                        </div><!--end of page -->
+
+
+                    </t>
+
+                </t>
+                
+            </t>
+
+        </template>
+
+    </data>
+
+</odoo>
