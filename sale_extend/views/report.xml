@@ -159,7 +159,7 @@
                                             </span>
                                         </div>
                                         <div style="width:50%;float:left;text-align:right">
-                                            <img  t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width:400px;margin-right:15px"/>
+                                            <img  t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width:300px;margin-right:15px;height:100px"/>
                                         </div>
                                     </div>
 
@@ -385,7 +385,7 @@
 
 
 
-                                    <div style="width:100%;float:left;text-align:left;margin-top:35px">
+                                    <div style="width:100%;float:left;text-align:left;margin-top:25px">
                                         <div style="width:17%;float:left">
                                             <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px">
                                                 Signed By :
@@ -397,7 +397,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="width:100%;float:left;text-align:left;margin-top:15px">
+                                    <div style="width:100%;float:left;text-align:left;margin-top:10px">
                                         <div style="width:13%;float:left">
                                             <span class="solid" style="text-align:left;padding:8px;font-size:13px;margin-left:15px">
                                                 Please Note :
@@ -409,7 +409,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                    <div style="width:100%;float:left;text-align:center;margin-top:10px">
                                         <div style="width:20%;float:right;display:inline-block;border-bottom:1px solid">
                                             <span style="text-align:center;font-size:15px;display:inline-block" t-esc="'{:0,.2f}'.format(float(o.amount_total))">
                                             </span>
@@ -421,7 +421,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                    <div style="width:100%;float:left;text-align:center;margin-top:10px">
                                         <div style="width:50%;float:left;text-align:left">
                                             <span class="solid" style="text-align:left;padding:8px;font-size:13px;margin-left:15px">
                                                 Term and conditions are outlined on the back of this sheet
@@ -441,7 +441,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="width:100%;float:left;text-align:center;margin-top:15px">
+                                    <div style="width:100%;float:left;text-align:center;margin-top:10px">
                                         <div style="width:20%;float:right;display:inline-block;border-bottom:1px solid">
                                             <span style="text-align:center;font-size:15px;display:inline-block">
                                             </span>
@@ -453,7 +453,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="width:100%;float:left;text-align:left;background:black;margin-top:20px">
+                                    <div style="width:100%;float:left;text-align:left;background:black;margin-top:15px">
 
                                         <div style="width:100%;float:left;text-align:left;">
                                             <div style="width:40%;float:left">
@@ -472,7 +472,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                        <div style="width:100%;float:left;text-align:left;margin-top:5px">
                                             <div style="width:40%;float:left">
                                                 <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
                                                     Tel :
@@ -487,7 +487,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                        <div style="width:100%;float:left;text-align:left;margin-top:5px">
                                             <div style="width:40%;float:left">
                                                 <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
                                                     Email : 
@@ -504,7 +504,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="width:100%;float:left;text-align:left;margin-top:8px">
+                                        <div style="width:100%;float:left;text-align:left;margin-top:5px">
                                             <div style="width:40%;float:left">
                                                 <span class="solid" style="text-align:left;padding:8px;font-size:15px;margin-left:15px;color:white">
                                                     Web :
